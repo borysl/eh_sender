@@ -1,0 +1,27 @@
+{
+  "name": "eh_sender",
+  "version": "1.0.0",
+  "description": "Send events to Event Hub",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/borysl/ev-sender.git"
+  },
+  "keywords": [
+    "event",
+    "hub",
+    "kafka"
+  ],
+  "author": "Borys Lebeda",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/borysl/ev-sender/issues"
+  },
+  "homepage": "https://github.com/borysl/ev-sender#readme",
+  "dependencies": {
+    "@azure/event-hubs": "^2.0.0"
+  }
+}
