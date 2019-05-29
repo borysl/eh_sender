@@ -1,7 +1,9 @@
-const { EventHubClient, EventPosition, delay } = require('@azure/event-hubs');
+const { EventHubClient, delay } = require('@azure/event-hubs');
 
 // Define connection string and related Event Hubs entity name here
 const { connectionString, eventHubsName } = require('./config.json');
+
+const { inflateSync } = require('zlib');
 
 async function main() {
   const client = EventHubClient.createFromConnectionString(connectionString, eventHubsName);
@@ -9,14 +11,10 @@ async function main() {
   const firstPartitionId = allPartitionIds[0];
 
   const receiveHandler = client.receive(firstPartitionId, eventData => {
-    console.log(`Received message: ${eventData.body} from partition ${firstPartitionId}`);
+    let body = inflateSync(eventData.body);
+    console.log(`Received message length ${body.length} from partition ${firstPartitionId}`);
   }, error => {
     console.log('Error when receiving message: ', error);
-  }, {
-    consumerGroup: 'schroedinger',
-    eventPosition: new EventPosition({
-      offset: 4
-    })
   });
 
   // Sleep for a while before stopping the receive operation.
