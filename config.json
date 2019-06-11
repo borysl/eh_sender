@@ -1,4 +1,5 @@
 {
     "connectionString": "<connectionString>",
-    "eventHubsName": "<eventHubsName>"
+    "eventHubsName": "<eventHubsName>",
+    "dir": "data"
 }

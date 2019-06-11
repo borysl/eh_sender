@@ -10,3 +10,4 @@ npm-debug.log*
 *.png
 .vscode/*.sql
 *.csv
+*.bak
